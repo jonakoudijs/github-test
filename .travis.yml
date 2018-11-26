@@ -6,11 +6,13 @@ language: generic
 
 env:
   # path to 'hadolint' binary
-  HADOLINT: "${HOME}/hadolint"
+  HADOLINT_BIN: "${HOME}/hadolint"
+  HADOLINT_VER: "v1.14.0"
+
 install:
   # download hadolint binary and set it as executable
-  - curl -sL -o ${HADOLINT} "https://github.com/hadolint/hadolint/releases/download/v1.15.0/hadolint-$(uname -s)-$(uname -m)"
-    && chmod 700 ${HADOLINT}
+  - curl -sL -o ${HADOLINT_BIN} "https://github.com/hadolint/hadolint/releases/download/${HADOLINT_VER}/hadolint-$(uname -s)-$(uname -m)"
+    && chmod 700 ${HADOLINT_BIN}
 script:
   # list files which name starts with 'Dockerfile'
-  - git ls-files --exclude='Dockerfile*' --ignored | xargs --max-lines=1 ${HADOLINT}
+  - git ls-files --exclude='Dockerfile*' --ignored | xargs --max-lines=1 ${HADOLINT_BIN}
