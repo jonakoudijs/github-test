@@ -13,5 +13,4 @@ install:
     && chmod 700 ${HADOLINT}
 script:
   # list files which name starts with 'Dockerfile'
-  # eg. Dockerfile, Dockerfile.build, etc.
   - git ls-files --exclude='Dockerfile*' --ignored | xargs --max-lines=1 ${HADOLINT}
