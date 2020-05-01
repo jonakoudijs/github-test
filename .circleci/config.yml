@@ -6,7 +6,7 @@ jobs:
   test:
     executor: win/default
     steps:
-      - docker pull mcr.microsoft.com/windows/servercore:1809
+      - run: docker pull mcr.microsoft.com/windows/servercore:1809
   
 workflows:
   version: 2
