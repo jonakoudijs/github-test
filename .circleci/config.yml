@@ -3,8 +3,13 @@ version: 2.1
 orbs:
   win: circleci/windows@2.3.0
 
-jobs:
-  build:
-    executor: win/default
-    steps:
-      - docker pull mcr.microsoft.com/windows/servercore:1809
+workflows:
+
+  welcome:
+
+    jobs:
+      build:
+        executor: win/default
+        steps:
+          - docker pull mcr.microsoft.com/windows/servercore:1809
+
