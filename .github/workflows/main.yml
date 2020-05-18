@@ -1,0 +1,11 @@
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  run-vm:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Install VirtualBox
+        run: sudo apt install virtualbox
