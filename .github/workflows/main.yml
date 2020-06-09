@@ -2,10 +2,16 @@ on:
   push:
     branches:
       - master
+  pull_request:
+    branches:
+      - master
 
 jobs:
   run-vm:
     runs-on: ubuntu-18.04
     steps:
-      - name: Install VirtualBox
-        run: sudo apt install virtualbox
+      - name: Test Command
+        run: echo "$GITHUB_REF"
+      - name: Conditional step
+        run: echo "Please run me.."
+        if: ${{ github.ref == 'master' }}
