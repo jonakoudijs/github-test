@@ -1,6 +1,7 @@
 on:
-  push:
-    tags:
+  release:
+    types:
+      - created
 
 jobs:
   run-me:
