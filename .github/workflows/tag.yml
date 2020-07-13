@@ -1,0 +1,10 @@
+on:
+  push:
+    tags:
+
+jobs:
+  run-me:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Test Command
+        run: echo "$GITHUB_REF"
