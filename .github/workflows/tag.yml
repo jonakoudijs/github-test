@@ -2,12 +2,9 @@ on:
   release:
     types:
       - created
-  push:
-    branches:
-      - '!*'
 
 jobs:
-  run-me:
+  run-only-tag:
     runs-on: ubuntu-18.04
     steps:
       - name: Test Command
