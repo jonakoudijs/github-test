@@ -7,5 +7,7 @@ jobs:
   run-only-tag:
     runs-on: ubuntu-18.04
     steps:
+      - name: Parse version
+        run: echo "::set-env name=APP_VERSION::$(echo $GITHUB_REF | awk -F '/' '{print $NF}')"
       - name: Test Command
-        run: echo "$GITHUB_REF"
+        run: echo "$GITHUB_REF" && echo "" && echo "$APP_VERSION"
