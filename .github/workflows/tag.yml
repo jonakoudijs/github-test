@@ -10,6 +10,6 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - name: Parse version
-        run: echo "::set-env name=API_VERSION::$(echo $GITHUB_REF | awk -F '/' '{print $NF}' | cut -c 1-)"
+        run: echo "::set-env name=API_VERSION::$(echo $GITHUB_REF | awk -F '/' '{print $NF}' | cut -c 2-)"
       - name: Test Command
         run: echo "$GITHUB_REF" && echo "" && echo "$API_VERSION"
