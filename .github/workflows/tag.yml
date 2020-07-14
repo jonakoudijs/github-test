@@ -2,8 +2,8 @@ on:
   release:
     types:
       - created
-    branches:    
-      - 'releases/v**'
+    tags-ignore:
+      - '!v**'
 
 jobs:
   run-only-tag:
