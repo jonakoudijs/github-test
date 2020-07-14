@@ -2,12 +2,14 @@ on:
   release:
     types:
       - created
+    tags:
+      - v**
 
 jobs:
   run-only-tag:
     runs-on: ubuntu-18.04
     steps:
       - name: Parse version
-        run: echo "::set-env name=APP_VERSION::$(echo $GITHUB_REF | awk -F '/' '{print $NF}')"
+        run: echo "::set-env name=API_VERSION::$(echo $GITHUB_REF | awk -F '/' '{print $NF}' | cut -c 1-)"
       - name: Test Command
-        run: echo "$GITHUB_REF" && echo "" && echo "$APP_VERSION"
+        run: echo "$GITHUB_REF" && echo "" && echo "$API_VERSION"
