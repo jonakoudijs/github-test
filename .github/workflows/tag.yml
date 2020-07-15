@@ -16,4 +16,4 @@ jobs:
       - name: Test command
         run: echo "$GITHUB_REF" && echo "" && echo "$API_VERSION"
       - name: Check tag convention
-        run: [[ "${VER:0:1}" == "a" ]] || exit 1
+        run: '[[ "${API_VERSION:0:1}" == "v" ]] || exit 1'
