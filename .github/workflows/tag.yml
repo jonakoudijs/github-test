@@ -2,7 +2,7 @@ on:
   release:
     types:
       - created
-    branches:    
+    branches:
       - 'releases/v**'
     tags-ignore:
       - '!v**'
@@ -11,7 +11,9 @@ jobs:
   run-only-tag:
     runs-on: ubuntu-18.04
     steps:
-      - name: Parse version
-        run: echo "::set-env name=API_VERSION::$(echo $GITHUB_REF | awk -F '/' '{print $NF}' | cut -c 2-)"
-      - name: Test Command
+      - name: Get version tag
+        run: echo "::set-env name=API_VERSION::$(echo $GITHUB_REF | awk -F '/' '{print $NF}')"
+      - name: Test command
         run: echo "$GITHUB_REF" && echo "" && echo "$API_VERSION"
+      - name: Check tag convention
+        run: [[ "${VER:0:1}" == "a" ]] || exit 1
