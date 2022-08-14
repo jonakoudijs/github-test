@@ -12,6 +12,10 @@ jobs:
     steps:
       - name: First Test
         run: >
+          $number = “ubuntu ubuntu-20”;
+          $number.count
+      - name: Second Test
+        run: >
           $number = “ranjan”,”vijay”,”raj”,”suraj”
           for ($i = 0; $i -le ($number.length - 1); $i += 1) {
             $number[$i]
