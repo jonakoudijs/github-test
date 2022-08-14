@@ -12,13 +12,10 @@ jobs:
     steps:
       - name: First Test
         run: >
-          $number = “ubuntu ubuntu-20 latest”;
-          $number.count
-      - name: Second Test
-        run: >
           $letterArray = "a","b","c","d";
           $number = “ubuntu,ubuntu-20,latest”;
-          foreach ($letter in $number)
+          $lists = $number.split(“,”);
+          foreach ($letter in $lists)
           {
             Write-Host $letter;
             Write-Host "-----";
