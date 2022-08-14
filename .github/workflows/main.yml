@@ -21,6 +21,7 @@ jobs:
           foreach ($letter in $number)
           {
             Write-Host $letter;
+            Write-Host "-----";
           }
       - name: Test Command
         run: >
