@@ -8,11 +8,10 @@ on:
 
 jobs:
   run-vm:
-    runs-on: ubuntu-18.04
+    runs-on: windows-2019
     steps:
       - name: Test Command
-        run: echo "$GITHUB_REF"
-      - name: Conditional step
-        run: echo "Please run me.."
-        if: ${{ github.ref == 'refs/heads/master' }}
-
+        run: >
+          for %TAG in (hello bla)
+          do
+            Write-Host "%TAG"
