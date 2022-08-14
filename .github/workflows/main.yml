@@ -17,7 +17,7 @@ jobs:
       - name: Second Test
         run: >
           $letterArray = "a","b","c","d";
-          $number = “ubuntu ubuntu-20 latest”;
+          $number = “ubuntu,ubuntu-20,latest”;
           foreach ($letter in $number)
           {
             Write-Host $letter;
