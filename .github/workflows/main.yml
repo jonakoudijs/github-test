@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: First Test
         run: >
-          $number = “ubuntu ubuntu-20”;
+          $number = “ubuntu ubuntu-20 latest”;
           $number.count
       - name: Second Test
         run: >
