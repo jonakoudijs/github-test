@@ -15,3 +15,4 @@ jobs:
           for %TAG in (hello bla)
           do
             Write-Host "%TAG"
+
