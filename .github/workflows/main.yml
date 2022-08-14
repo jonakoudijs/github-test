@@ -10,6 +10,12 @@ jobs:
   run-vm:
     runs-on: windows-2019
     steps:
+      - name: First Test
+        run: >
+          $number = “ranjan”,”vijay”,”raj”,”suraj”
+          for ($i = 0; $i -le ($number.length - 1); $i += 1) {
+            $number[$i]
+          }
       - name: Test Command
         run: >
           for %TAG in (hello bla)
