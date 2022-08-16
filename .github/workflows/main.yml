@@ -14,7 +14,6 @@ jobs:
         run: >
           echo ${{ github.run_id }} &&
           echo ${{ github.job }}
-
       - name: Second Command
         run: >
           echo ${{ github.run_id }} &&
@@ -27,8 +26,15 @@ jobs:
         run: >
           echo ${{ github.run_id }} &&
           echo ${{ github.job }}
-
       - name: Second Command
         run: >
           echo ${{ github.run_id }} &&
           echo ${{ github.job }}
+
+    
+  retry-job:
+    runs-on: ubuntu-latest
+    needs: [first-job, second-job]
+    steps:
+      - name: Check running jobs
+        run: gh run list
