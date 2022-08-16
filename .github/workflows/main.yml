@@ -43,7 +43,7 @@ jobs:
     steps:
       - name: Check running jobs
         run: >
-          gh run list --repo ${{ github.repository }} \
-          --json conclusion,databaseId \
+          gh run list --repo ${{ github.repository }}
+          --json conclusion,databaseId
           --jq '.[] | select(.databaseId==${{ github.run_id }}) | .conclusion'
         #run: gh run list --repo ${{ github.repository }}
