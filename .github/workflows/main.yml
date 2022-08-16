@@ -8,20 +8,13 @@ on:
 
 jobs:
   run-vm:
-    runs-on: windows-2019
+    runs-on: ubuntu-latest
     steps:
-      - name: First Test
+      - name: First Command
         run: >
-          $number = “ubuntu,ubuntu-20,latest”;
-          $lists = $number.split(“,”);
-          foreach ($letter in $number.split(“,”))
-          {
-            Write-Host $letter;
-            Write-Host "-----";
-          }
-      - name: Test Command
-        run: >
-          for %TAG in (hello bla)
-          do
-            Write-Host "%TAG"
+          echo ${{ github.run_id }}
 
+      - name: Second Command
+        run: >
+          echo ${{ github.run_id }}
+          
