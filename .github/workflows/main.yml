@@ -7,7 +7,7 @@ on:
       - master
 
 jobs:
-  run-vm:
+  first-job:
     runs-on: ubuntu-latest
     steps:
       - name: First Command
@@ -18,3 +18,13 @@ jobs:
         run: >
           echo ${{ github.run_id }}
           
+  second-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: First Command
+        run: >
+          echo ${{ github.run_id }}
+
+      - name: Second Command
+        run: >
+          echo ${{ github.run_id }}
