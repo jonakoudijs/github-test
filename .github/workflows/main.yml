@@ -12,23 +12,23 @@ jobs:
     steps:
       - name: First Command
         run: >
-          echo ${{ github.run_id }} \
-       && echo ${{ github.job_id }}
+          echo ${{ github.run_id }} && \
+          echo ${{ github.job_id }}
 
       - name: Second Command
         run: >
-          echo ${{ github.run_id }} \
-       && echo ${{ github.job_id }}
+          echo ${{ github.run_id }} && \
+          echo ${{ github.job_id }}
           
   second-job:
     runs-on: ubuntu-latest
     steps:
       - name: First Command
         run: >
-          echo ${{ github.run_id }} \
-       && echo ${{ github.job_id }}
+          echo ${{ github.run_id }} && \
+          echo ${{ github.job_id }}
 
       - name: Second Command
         run: >
-          echo ${{ github.run_id }} \
-       && echo ${{ github.job_id }}
+          echo ${{ github.run_id }} && \
+          echo ${{ github.job_id }}
