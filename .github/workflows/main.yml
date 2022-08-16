@@ -44,6 +44,5 @@ jobs:
       - name: Check running jobs
         run: >
           gh run list --repo ${{ github.repository }}
-          --json conclusion,databaseId
-          --jq '.[] | select(.databaseId==${{ github.run_id }}) | .conclusion'
+          --json name,startedAt,updatedAt,url,conclusion,databaseId
         #run: gh run list --repo ${{ github.repository }}
