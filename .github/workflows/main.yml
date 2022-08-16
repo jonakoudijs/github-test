@@ -13,12 +13,12 @@ jobs:
       - name: First Command
         run: >
           echo ${{ github.run_id }} &&
-          echo ${{ github.job_id }}
+          echo ${{ github.job }}
 
       - name: Second Command
         run: >
           echo ${{ github.run_id }} &&
-          echo ${{ github.job_id }}
+          echo ${{ github.job }}
           
   second-job:
     runs-on: ubuntu-latest
@@ -26,9 +26,9 @@ jobs:
       - name: First Command
         run: >
           echo ${{ github.run_id }} &&
-          echo ${{ github.job_id }}
+          echo ${{ github.job }}
 
       - name: Second Command
         run: >
           echo ${{ github.run_id }} &&
-          echo ${{ github.job_id }}
+          echo ${{ github.job }}
