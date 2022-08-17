@@ -47,6 +47,5 @@ jobs:
           --json name,startedAt,updatedAt,url,conclusion,databaseId
       - name: List total jobs
         run: >
-          gh api \
-          -H "Accept: application/vnd.github+json"
+          gh api -H "Accept: application/vnd.github+json"
           /repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/jobs
