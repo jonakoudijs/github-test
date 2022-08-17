@@ -45,4 +45,8 @@ jobs:
         run: >
           gh run list --repo ${{ github.repository }}
           --json name,startedAt,updatedAt,url,conclusion,databaseId
-        #run: gh run list --repo ${{ github.repository }}
+      - name: List total jobs
+        run: >
+          gh api \
+          -H "Accept: application/vnd.github+json" \
+          /repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/jobs
