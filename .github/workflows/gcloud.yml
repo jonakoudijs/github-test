@@ -22,6 +22,8 @@ jobs:
       with:
         name: 'github'
         runtime: 'python310'
+        entry_point: 'hello_http'
+        region: 'eu-west1'
 
 #      - name: Deploy a Cloud Function
 #        id: deploy-function
