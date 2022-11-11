@@ -10,6 +10,8 @@ jobs:
   run-vm:
     runs-on: ubuntu-20.04
     steps:
+    - uses: actions/checkout@v3
+
     - id: 'auth'
       uses: 'google-github-actions/auth@v0'
       with:
