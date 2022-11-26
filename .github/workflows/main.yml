@@ -11,9 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: First Command
-        run: >
-          git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | xargs
+        run: |
+          echo 'CHANGED_FILES<<EOF' >> $GITHUB_ENV
+          git show --name-only --pretty=format: ${{ github.sha }} >> $GITHUB_ENV
+          echo 'EOF' >> $GITHUB_ENV
+      - run: >
+          echo $CHANGED_FILES
+
       - name: Second Command
+        if: contains('${{ env.CHANGED_FILES }}', 'test-a')
         run: >
-          echo ${{ github.run_id }} &&
-          echo ${{ github.job }}
+          echo "LETS GOO"
