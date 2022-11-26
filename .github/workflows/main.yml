@@ -10,6 +10,8 @@ jobs:
   first-job:
     runs-on: ubuntu-latest
     steps:
+      - run: >
+          git show --name-only --pretty=format: ${{ github.sha }}
       - name: First Command
         run: |
           echo 'CHANGED_FILES<<EOF' >> $GITHUB_ENV
