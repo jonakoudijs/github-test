@@ -12,6 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: git log
+      - run: git status
+      - run: git branch --remote
       - run: >
           git show --name-only --pretty=format: ${{ github.sha }}
       - name: First Command
