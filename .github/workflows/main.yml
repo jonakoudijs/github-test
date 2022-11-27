@@ -22,6 +22,6 @@ jobs:
           echo $CHANGED_FILES
 
       - name: Second Command
-        if: contains('${{ env.CHANGED_FILES }}', 'test-a')
+        if: contains(${{ env.CHANGED_FILES }}, 'test-a')
         run: >
           echo "LETS GOO"
