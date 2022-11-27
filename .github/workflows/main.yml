@@ -13,11 +13,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - run: git log
-      - run: git status
-      - run: git branch --remote
-      - run: >
-          git show --name-only --pretty=format: ${{ github.sha }}
       - name: First Command
         run: |
           echo 'CHANGED_FILES<<EOF' >> $GITHUB_ENV
