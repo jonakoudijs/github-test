@@ -8,7 +8,7 @@ jobs:
     name: Check Changed Files
     runs-on: ubuntu-20.04
     outputs:
-      changed-files: ${{ steps.check-changed-files.outputs.changed-files-list }}
+      changed-files-list: ${{ steps.check-changed-files.outputs.changed-files-list }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -29,7 +29,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - run: echo ${{ needs.check-changed-files.outputs.changed-files-list }}
+      - run: echo ${{ needs.changed-files.outputs.changed-files-list }}
       - run: echo ${{ github.event_name }}
       #- name: First Command
       #  run: |
