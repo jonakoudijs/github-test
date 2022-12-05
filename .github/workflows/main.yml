@@ -4,6 +4,16 @@ on:
     - cron: '0,5,10,15,20,25,30,35,40,45,50,55 * * * *'
 
 jobs:
+  changed-files:
+    steps:
+      - name: First Command
+        run: |
+          echo 'CHANGED_FILES<<EOF' >> $GITHUB_ENV
+          git show --name-only --pretty=format: ${{ github.sha }} >> $GITHUB_ENV
+          echo 'EOF' >> $GITHUB_ENV
+      - run: >
+          echo $CHANGED_FILES
+
   first-job:
     runs-on: ubuntu-20.04
     steps:
@@ -11,11 +21,11 @@ jobs:
         with:
           fetch-depth: 0
       - run: echo ${{ github.event_name }}
-      - name: First Command
-        run: |
-          echo 'CHANGED_FILES<<EOF' >> $GITHUB_ENV
-          git show --name-only --pretty=format: ${{ github.sha }} >> $GITHUB_ENV
-          echo 'EOF' >> $GITHUB_ENV
+      #- name: First Command
+      #  run: |
+      #    echo 'CHANGED_FILES<<EOF' >> $GITHUB_ENV
+      #    git show --name-only --pretty=format: ${{ github.sha }} >> $GITHUB_ENV
+      #    echo 'EOF' >> $GITHUB_ENV
       - run: >
           echo $CHANGED_FILES
 
