@@ -20,7 +20,7 @@ jobs:
           git show --name-only --pretty=format: ${{ github.sha }} >> $GITHUB_OUTPUT
           echo 'EOF' >> $GITHUB_OUTPUT
       - run: >
-          echo ${{ steps.check-changed-files.outputs.changed-files-list }}
+          echo "${{ steps.check-changed-files.outputs.changed-files-list }}"
 
   first-job:
     runs-on: ubuntu-20.04
