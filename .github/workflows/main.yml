@@ -34,4 +34,4 @@ jobs:
       - name: Second Command
         if: contains(${{ needs.check-requirements.outputs.changed-files-list }}, 'test-a') || github.event_name == "schedule"
         run: >
-          echo "LETS GOO"
+          echo "LETS GOOO"
