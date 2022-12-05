@@ -28,7 +28,6 @@ jobs:
   first-job:
     runs-on: ubuntu-20.04
     needs: check-requirements
-    if: (contains(needs.check-requirements.outputs.changed-files-list, 'test-a')) || ($github.event_name == "schedule")
     if: ${{ contains(needs.check-requirements.outputs.changed-files-list, 'test-a') || github.event_name == 'schedule' }}
     steps:
       - uses: actions/checkout@v3
