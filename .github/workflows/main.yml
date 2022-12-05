@@ -19,7 +19,10 @@ jobs:
           echo 'changed-files-list<<EOF' >> $GITHUB_OUTPUT
           git show --name-only --pretty=format: ${{ github.sha }} >> $GITHUB_OUTPUT
           echo 'EOF' >> $GITHUB_OUTPUT
-      - run: >
+      - name: Output event type
+        run: echo "${{ github.event_name }}"
+      - name: Output changed files list
+        run: >
           echo "${{ steps.check-changed-files.outputs.changed-files-list }}"
 
   first-job:
