@@ -24,7 +24,7 @@ jobs:
 
   first-job:
     runs-on: ubuntu-20.04
-    needs: changed-files
+    needs: check-requirements
     steps:
       - uses: actions/checkout@v3
         with:
