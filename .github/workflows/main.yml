@@ -9,12 +9,19 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       #- run: du -sh /*/*/ 2> /dev/null
-      - name: Check /usr/local
-        run: du -sh /usr/local/*/ 2> /dev/null
-      - name: Check /usr/share
-        run: du -sh /usr/share/*/ 2> /dev/null
+      - name: Check /usr/local/lib/
+        run: du -sh /usr/local/lib/*/ 2> /dev/null
+      #- name: Check /usr/share
+      #  run: du -sh /usr/share/*/ 2> /dev/null
 
       - run: df -h
+
+      - run: |
+          rm -rf /opt/hostedtoolcache/
+          rm -rf /opt/az/
+          rm -rf /usr/share/dotnet/
+          rm -rf /usr/share/swift/
+
       - run: docker build -t csgo-test .
       - run: df -h
         if: always()
