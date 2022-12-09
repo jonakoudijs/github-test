@@ -1,35 +1,38 @@
 ######## INSTALL ########
 
 # Set the base image
-FROM mcr.microsoft.com/windows/servercore:1809
+FROM steamcmd/steamcmd:ubuntu-20
 
-# Set alternative shell
-SHELL ["powershell"]
+# File Author / Maintainer
+LABEL maintainer="Lanlords"
 
 # Set environment variables
-ENV POWERSHELL_TELEMETRY_OPTOUT 1
-ENV HOME "c:\steamcmd"
+ENV USER csgo
+ENV HOME /data
 
-# Create system user
-RUN New-LocalUser -Name "steamcmd" -NoPassword -AccountNeverExpires -UserMayNotChangePassword | Set-LocalUser -PasswordNeverExpires $true
+# Install prerequisites
+ARG DEBIAN_FRONTEND=noninteractive
+RUN dpkg --add-architecture i386 \
+ && apt-get update -y \
+ && apt-get install -y --no-install-recommends ca-certificates libstdc++6:i386 \
+ && rm -rf /var/lib/apt/lists/*
 
-# Switch to user
-USER steamcmd
+# Create the application user
+RUN useradd -m -d $HOME $USER
 
-# Create SteamCMD directory
-RUN New-Item -ItemType Directory "c:\steamcmd"
+# Download game files from steam
+RUN steamcmd +login anonymous +force_install_dir $HOME \
+    +app_update 740 validate +quit
 
-# Set SteamCMD working directory
+# switch to user
+USER $USER
+
+# Expose the default ports
+EXPOSE 27015/udp 27015/tcp
+
+# Set working directory
 WORKDIR $HOME
 
-# Download and unpack SteamCMD archive
-RUN Invoke-WebRequest http://media.steampowered.com/installer/steamcmd.zip -O c:\steamcmd\steamcmd.zip; \
-    Expand-Archive c:\steamcmd\steamcmd.zip -DestinationPath c:\steamcmd; \
-    Remove-Item c:\steamcmd\steamcmd.zip
-
-# Update SteamCMD
-RUN c:\steamcmd\steamcmd.exe +quit; exit 0
-
 # Set default command
-ENTRYPOINT c:\steamcmd\steamcmd.exe
-CMD +help +quit
+ENTRYPOINT ["/data/srcds_run"]
+CMD ["-console", "-game csgo", "-usercon", "-nobots", "-maxplayers_override 30", "+mp_autoteambalance 0", "-tickrate 128", "+game_type 0", "+game_mode 1", "+mapgroup mg_bomb", "+ip 0.0.0.0", "+exec csgoserver.cfg"]
