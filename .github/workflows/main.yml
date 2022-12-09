@@ -13,9 +13,6 @@ jobs:
         run: du -sh /usr/local/lib/*/ 2> /dev/null
       #- name: Check /usr/share
       #  run: du -sh /usr/share/*/ 2> /dev/null
-      - run: whoami
-
-      - run: sudo whoami
 
       - run: df -h
 
@@ -25,6 +22,8 @@ jobs:
           sudo rm -rf /usr/share/dotnet/       # 3.3G
           sudo rm -rf /usr/share/swift/        # 1.6G
           sudo rm -rf /usr/local/lib/android/  # 12G
+
+      - run: df -h
 
       - run: docker build -t csgo-test .
       - run: df -h
