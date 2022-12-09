@@ -13,6 +13,9 @@ jobs:
         run: du -sh /usr/local/lib/*/ 2> /dev/null
       #- name: Check /usr/share
       #  run: du -sh /usr/share/*/ 2> /dev/null
+      - run: whoami
+
+      - run: sudo whoami
 
       - run: df -h
 
