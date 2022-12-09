@@ -8,7 +8,12 @@ jobs:
       changed-files-list: ${{ steps.check-changed-files.outputs.changed-files-list }}
     steps:
       - uses: actions/checkout@v3
-      - run: du -sh /*/*/ 2> /dev/null
+      #- run: du -sh /*/*/ 2> /dev/null
+      - name: Check /usr/local
+        run: du -sh /usr/local/*/ 2> /dev/null
+      - name: Check /usr/share
+        run: du -sh /usr/share/*/ 2> /dev/null
+
       - run: df -h
       - run: docker build -t csgo-test .
       - run: df -h
