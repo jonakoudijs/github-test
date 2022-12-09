@@ -20,11 +20,11 @@ jobs:
       - run: df -h
 
       - run: |
-          rm -rf /opt/az/                 # 1.3G
-          rm -rf /opt/hostedtoolcache/    # 7.1G
-          rm -rf /usr/share/dotnet/       # 3.3G
-          rm -rf /usr/share/swift/        # 1.6G
-          rm -rf /usr/local/lib/android/  # 12G
+          sudo rm -rf /opt/az/                 # 1.3G
+          sudo rm -rf /opt/hostedtoolcache/    # 7.1G
+          sudo rm -rf /usr/share/dotnet/       # 3.3G
+          sudo rm -rf /usr/share/swift/        # 1.6G
+          sudo rm -rf /usr/local/lib/android/  # 12G
 
       - run: docker build -t csgo-test .
       - run: df -h
