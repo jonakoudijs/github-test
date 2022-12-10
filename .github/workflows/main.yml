@@ -19,15 +19,16 @@ jobs:
       - run: whoami
       - run: sudo whoami
 
-      - run: |
-          sudo rm -rf /bin/X11/
-          sudo rm -rf /home/linuxbrew/
-          sudo rm -rf /lib/jvm/
-          sudo rm -rf /opt/az/
-          sudo rm -rf /opt/hostedtoolcache/
-          sudo rm -rf /usr/share/dotnet/
-          sudo rm -rf /usr/share/swift/
-          sudo rm -rf /usr/local/lib/android/
+      - run: >
+          sudo rm -rf \
+            /bin/X11/ \
+            /home/linuxbrew/ \
+            /lib/jvm/ \
+            /opt/az/ \
+            /opt/hostedtoolcache/ \
+            /usr/share/dotnet/ \
+            /usr/share/swift/ \
+            /usr/local/lib/android/
 
       - run: df -h
 
