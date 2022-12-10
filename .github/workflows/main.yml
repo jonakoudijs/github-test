@@ -17,14 +17,14 @@ jobs:
       - run: df -h
 
       - run: |
-          sudo rm -rf /bin/X11/                # 1.4G
-          sudo rm -rf /home/linuxbrew/         # 1.5G
-          sudo rm -rf /lib/jvm/                # 1.3G
-          sudo rm -rf /opt/az/                 # 1.3G
-          sudo rm -rf /opt/hostedtoolcache/    # 7.1G
-          sudo rm -rf /usr/share/dotnet/       # 3.3G
-          sudo rm -rf /usr/share/swift/        # 1.6G
-          sudo rm -rf /usr/local/lib/android/  # 12G
+          sudo rm -rf /bin/X11/
+          sudo rm -rf /home/linuxbrew/
+          sudo rm -rf /lib/jvm/
+          sudo rm -rf /opt/az/
+          sudo rm -rf /opt/hostedtoolcache/
+          sudo rm -rf /usr/share/dotnet/
+          sudo rm -rf /usr/share/swift/
+          sudo rm -rf /usr/local/lib/android/
 
       - run: df -h
 
