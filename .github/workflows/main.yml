@@ -9,12 +9,15 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       #- run: du -sh /*/*/ 2> /dev/null
-      - name: Check /usr/local/lib/
-        run: du -sh /usr/local/lib/*/ 2> /dev/null
+      #- name: Check /usr/local/lib/
+      #  run: du -sh /usr/local/lib/*/ 2> /dev/null
       #- name: Check /usr/share
       #  run: du -sh /usr/share/*/ 2> /dev/null
 
       - run: df -h
+
+      - run: whoami
+      - run: sudo whoami
 
       - run: |
           sudo rm -rf /bin/X11/
