@@ -1,0 +1,47 @@
+{
+    "name": "SteamCMD API",
+    "description": "Read-only API interface for steamcmd app_info",
+    "runtime": "python3.9",
+    "env": [
+        {
+            "key": "VERSION",
+            "description": "Version of the API, used for the `/v1/version` endpoint",
+            "value": "1.0.0",
+            "required": true
+        },
+        {
+            "key": "CACHE",
+            "description": "Enables/disables caching",
+            "value": "true",
+            "required": false
+        },
+        {
+            "key": "CACHE_TYPE",
+            "description": "Cache type used (possible choices: redis, deta)",
+            "value": "deta",
+            "required": false
+        },
+        {
+            "key": "CACHE_EXPIRATION",
+            "description": "Cache type used (possible choices: redis, deta)",
+            "value": "120",
+            "required": false
+        },
+        {
+            "key": "DETA_BASE_NAME",
+            "description": "Name of the Deta base used for caching",
+            "value": "api",
+            "required": false
+        },
+        {
+            "key": "DETA_PROJECT_KEY",
+            "description": "Project key for Deta used to connect to Deta base",
+            "value": "",
+            "required": false
+        }
+    ]
+}
+
+
+
+DETA_PROJECT_KEY, VERSION, CACHE_EXPIRATION, DETA_BASE_NAME, CACHE_TYPE, CACHE
