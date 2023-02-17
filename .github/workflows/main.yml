@@ -2,6 +2,15 @@ on:
   push:
 
 jobs:
+  install-fly:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: superfly/flyctl-actions/setup-flyctl@master
+      - run: flyctl --help
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_ACCESS_TOKEN }}
+      
   build-image:
     runs-on: ubuntu-20.04
     outputs:
