@@ -4,7 +4,7 @@ on:
 jobs:
 
   build-image:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     outputs:
       changed-files-list: ${{ steps.check-changed-files.outputs.changed-files-list }}
     steps:
@@ -39,8 +39,6 @@ jobs:
 #            /usr/share/dotnet/ \
 #            /usr/share/swift/ \
 #            /usr/local/lib/android/
-
-      - run: duf
 
       - run: docker build -t csgo-test .
 
