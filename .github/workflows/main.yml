@@ -15,6 +15,8 @@ jobs:
       #- name: Check /usr/share
       #  run: du -sh /usr/share/*/ 2> /dev/null
 
+      - run: brew help
+
       - run: sudo apt update && sudo apt install duf
       - run: sudo duf --all
 
