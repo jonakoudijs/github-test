@@ -21,14 +21,15 @@ jobs:
 
       - run: >
           sudo rm -rf \
-            /bin/X11/ \
-            /home/linuxbrew/ \
-            /lib/jvm/ \
-            /opt/az/ \
-            /opt/hostedtoolcache/ \
-            /usr/share/dotnet/ \
-            /usr/share/swift/ \
-            /usr/local/lib/android/
+            /opt/az/
+#            /bin/X11/ \
+#            /home/linuxbrew/ \
+#            /lib/jvm/ \
+#            /opt/az/ \
+#            /opt/hostedtoolcache/ \
+#            /usr/share/dotnet/ \
+#            /usr/share/swift/ \
+#            /usr/local/lib/android/
 
       - run: sudo duf --all
 
