@@ -15,9 +15,7 @@ jobs:
       #- name: Check /usr/share
       #  run: du -sh /usr/share/*/ 2> /dev/null
 
-      - run: find / -name 'df'
-
-      - run: /bin/df -h
+      - run: /usr/bin/df -h
 
       - run: >
           sudo rm -rf \
@@ -30,8 +28,8 @@ jobs:
             /usr/share/swift/ \
             /usr/local/lib/android/
 
-      - run: /bin/df -h
+      - run: /usr/bin/df -h
 
       - run: docker build -t csgo-test .
-      - run: /bin/df -h
+      - run: /usr/bin/df -h
         if: always()
