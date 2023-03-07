@@ -15,9 +15,11 @@ jobs:
       #- name: Check /usr/share
       #  run: du -sh /usr/share/*/ 2> /dev/null
 
-      - run: curl -sLO https://github.com/muesli/duf/releases/download/v0.8.1/duf_0.8.1_linux_amd64.deb && sudo dpkg -i duf_0.8.1_linux_amd64.deb
+      - run: >
+          curl -sLO https://github.com/muesli/duf/releases/download/v0.8.1/duf_0.8.1_linux_amd64.deb \
+          && sudo dpkg -i duf_0.8.1_linux_amd64.deb
 
-      - run: sudo duf --all
+      - run: sudo duf
 
       - run: >
           sudo rm -rf \
@@ -31,8 +33,9 @@ jobs:
 #            /usr/share/swift/ \
 #            /usr/local/lib/android/
 
-      - run: sudo duf --all
+      - run: sudo duf
 
       - run: docker build -t csgo-test .
-      - run: sudo duf --all
+
+      - run: sudo duf
         if: always()
