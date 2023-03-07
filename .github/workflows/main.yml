@@ -15,8 +15,8 @@ jobs:
       #- name: Check /usr/share
       #  run: du -sh /usr/share/*/ 2> /dev/null
 
-      - run: apt install duf
-      - run: duf --all
+      - run: sudo apt update && sudo apt install duf
+      - run: sudo duf --all
 
       - run: >
           sudo rm -rf \
@@ -29,8 +29,8 @@ jobs:
             /usr/share/swift/ \
             /usr/local/lib/android/
 
-      - run: duf --all
+      - run: sudo duf --all
 
       - run: docker build -t csgo-test .
-      - run: duf --all
+      - run: sudo duf --all
         if: always()
