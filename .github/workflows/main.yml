@@ -15,7 +15,7 @@ jobs:
       #- name: Check /usr/share
       #  run: du -sh /usr/share/*/ 2> /dev/null
 
-      - run: /usr/bin/df -h
+      - run: ls -l /usr/bin/df
 
       - run: >
           sudo rm -rf \
@@ -31,5 +31,5 @@ jobs:
       - run: /usr/bin/df -h
 
       - run: docker build -t csgo-test .
-      - run: /usr/bin/df -h
+      - run: /usr/bin/df
         if: always()
