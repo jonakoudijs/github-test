@@ -15,10 +15,8 @@ jobs:
       #- name: Check /usr/share
       #  run: du -sh /usr/share/*/ 2> /dev/null
 
-      - run: sudo wget --quiet --output-document=- https://github.com/muesli/duf/releases/download/v0.8.1/duf_0.8.1_linux_amd64.deb | sudo dpkg --install -
-        
+      - run: curl -sLO https://github.com/muesli/duf/releases/download/v0.8.1/duf_0.8.1_linux_amd64.deb && sudo dpkg -i duf_0.8.1_linux_amd64.deb
 
-      - run: sudo apt update && sudo apt install duf
       - run: sudo duf --all
 
       - run: >
