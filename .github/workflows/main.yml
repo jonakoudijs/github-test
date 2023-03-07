@@ -15,6 +15,7 @@ jobs:
       #- name: Check /usr/share
       #  run: du -sh /usr/share/*/ 2> /dev/null
 
+      - run: find / -name 'df'
 
       - run: /bin/df -h
 
