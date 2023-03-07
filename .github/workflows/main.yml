@@ -8,7 +8,6 @@ jobs:
     outputs:
       changed-files-list: ${{ steps.check-changed-files.outputs.changed-files-list }}
     steps:
-      - uses: actions/checkout@v3
       - name: Maximize build space
         uses: easimon/maximize-build-space@master
         with:
@@ -18,6 +17,7 @@ jobs:
           remove-android: 'true'
           remove-dotnet:  'true'
           remove-haskell: 'true'
+      - uses: actions/checkout@v3
       #- run: du -sh /*/*/ 2> /dev/null
       #- name: Check /usr/local/lib/
       #  run: du -sh /usr/local/lib/*/ 2> /dev/null
