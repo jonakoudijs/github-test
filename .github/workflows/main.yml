@@ -12,8 +12,9 @@ jobs:
       - name: Maximize build space
         uses: easimon/maximize-build-space@master
         with:
-          root-reserve-mb: 512
-          swap-size-mb: 1024
+          #root-reserve-mb: 512
+          #swap-size-mb: 1024
+          overprovision-lvm: 'true'
           remove-android: 'true'
           remove-dotnet:  'true'
           remove-haskell: 'true'
@@ -25,7 +26,7 @@ jobs:
 
       - run: curl -sLO https://github.com/muesli/duf/releases/download/v0.8.1/duf_0.8.1_linux_amd64.deb && sudo dpkg -i duf_0.8.1_linux_amd64.deb
 
-      - run: sudo duf
+      - run: duf
 
 #      - run: >
 #          sudo rm -rf \
@@ -39,9 +40,9 @@ jobs:
 #            /usr/share/swift/ \
 #            /usr/local/lib/android/
 
-      - run: sudo duf
+      - run: duf
 
       - run: docker build -t csgo-test .
 
-      - run: sudo duf
+      - run: duf
         if: always()
