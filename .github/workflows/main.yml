@@ -7,9 +7,9 @@ jobs:
 
     steps:
       - name: checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: create file
-        run: touch test.txt
+        run: touch test-2.txt
 
       # make the changes between checkout and push
       - name: push
