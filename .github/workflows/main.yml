@@ -2,45 +2,15 @@ on:
   push:
 
 jobs:
-
-  build-image:
+  test-push-edit:
     runs-on: ubuntu-22.04
-    outputs:
-      changed-files-list: ${{ steps.check-changed-files.outputs.changed-files-list }}
+
     steps:
-      - name: Maximize build space
-        uses: easimon/maximize-build-space@master
-        with:
-          #root-reserve-mb: 512
-          #swap-size-mb: 1024
-          overprovision-lvm: 'true'
-          remove-android: 'true'
-          remove-dotnet:  'true'
-          remove-haskell: 'true'
-      - uses: actions/checkout@v3
-      #- run: du -sh /*/*/ 2> /dev/null
-      #- name: Check /usr/local/lib/
-      #  run: du -sh /usr/local/lib/*/ 2> /dev/null
-      #- name: Check /usr/share
-      #  run: du -sh /usr/share/*/ 2> /dev/null
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: create file
+        run: touch test.txt
 
-      - run: curl -sLO https://github.com/muesli/duf/releases/download/v0.8.1/duf_0.8.1_linux_amd64.deb && sudo dpkg -i duf_0.8.1_linux_amd64.deb
-
-      - run: duf
-
-#      - run: >
-#          sudo rm -rf \
-#            /opt/az/
-#            /bin/X11/ \
-#            /home/linuxbrew/ \
-#            /lib/jvm/ \
-#            /opt/az/ \
-#            /opt/hostedtoolcache/ \
-#            /usr/share/dotnet/ \
-#            /usr/share/swift/ \
-#            /usr/local/lib/android/
-
-      - run: docker build -t csgo-test .
-
-      - run: duf
-        if: always()
+      # make the changes between checkout and push
+      - name: push
+        uses: actions-x/commit@v6
